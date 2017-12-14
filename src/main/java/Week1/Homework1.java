@@ -1,5 +1,10 @@
 package Week1;
 
+import javax.sound.midi.Soundbank;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Homework1 {
 
     public static void main(String []args){
@@ -11,7 +16,10 @@ public class Homework1 {
         Point d=new Point(4,5);
         //System.out.println(h.isCross(a,b,c,d));
         double list[]=new double[]{1, -2, 3, 10, -4, 7, 2, -5};
-        list=h.maxSum(list);
+       // list=h.maxSum(list);
+//        System.out.println(h.isAnagram("牙刷齿","齿刷牙"));
+  //      System.out.println(h.findMax(new int[]{1,2}));
+        System.out.println(h.isExist(new int[]{1, -2, 3, 10, -4, 7, 2, -5}));
     }
 
     /**
@@ -63,6 +71,47 @@ public class Homework1 {
     }
 
     /**
+     * 变位词
+     * @param a
+     * @param b
+     * @return
+     */
+    public boolean isAnagram(String a,String b){
+        if (a.length()!=b.length())
+            return false;
+        char [] c=a.toCharArray();
+        Arrays.sort(c);
+        char [] d=b.toCharArray();
+        Arrays.sort(d);
+        a=new String(c);
+        b=new String(d);
+        if (a.equals(b))
+            return true;
+        return false;
+    }
+
+    public int findMax(int [] array){
+        int max=array[0];
+        for (int i=1;i<array.length;i++){
+            if (array[i]>max)
+                max=array[i];
+        }
+        return max;
+    }
+
+    public boolean isExist(int [] array){
+        HashSet<Integer> set=new HashSet<>();
+
+        for (int i=0; i<array.length;i++){
+            if (set.contains(array[i]))
+                return true;
+            set.add(array[i]);
+        }
+        return false;
+    }
+
+
+    /**
      * 求子数组使得其有最大连续子数组和
      * @param a
      * @return
@@ -71,7 +120,6 @@ public class Homework1 {
         int start=0;
         int end=0;
         int temp=0;
-        double current=0;
         double max=a[0];
         double b[]=new double[a.length];
         b[0]=a[0];
