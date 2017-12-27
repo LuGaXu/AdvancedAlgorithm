@@ -71,14 +71,14 @@ public class MergeSort {
     public int [] mergeSort1(int [] list){
         if (list.length<=1)
             return list;
-        int arraySize=1;
-        while (arraySize<list.length){
+        int size=1;
+        while (size<list.length){
             Queue<int[]> queue=new LinkedList<>();
             int i=0;
             while (i<list.length){
-                int [] temp=new int[i<list.length-list.length%arraySize?arraySize:list.length%arraySize];
+                int [] temp=new int[i<list.length-list.length%size?size:list.length%size];
                 int index=0;
-                while (index<arraySize&&i<list.length){
+                while (index<size&&i<list.length){
                     temp[index++]=list[i++];
                 }
                 queue.add(temp);
@@ -87,9 +87,9 @@ public class MergeSort {
             //sort
             while (queue.peek()!=null){
                 merge1(queue.poll(),queue.peek()==null?new int[0]:queue.poll(),list,j);
-                j+=2*arraySize;
+                j+=2*size;
             }
-            arraySize=2*arraySize;
+            size=2*size;
         }
         return list;
     }
