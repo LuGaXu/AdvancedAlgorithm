@@ -5,6 +5,7 @@ import java.util.Queue;
 
 /**
  * 计算数组中的倒置数量
+ * 非递归形式实现归并排序
  * Created by lujxu on 2017/12/19.
  */
 public class MergeSort {
