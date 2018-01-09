@@ -33,7 +33,7 @@ public class ClosestPoint {
         points.sort(new ComparatorY());
         points.sort(new ComparatorX());
         double min=getCloestPoint(points);
-        System.out.println("the cloest pair is ("+a.x+","+a.y+") and ("+ b.x+","+b.y+")");
+        System.out.println("the closest pair is ("+a.x+","+a.y+") and ("+ b.x+","+b.y+")");
         System.out.println(Math.sqrt(min));
     }
 
