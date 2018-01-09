@@ -6,7 +6,7 @@ package week5;
 public class CounterfeitCoin {
 
     public static void main(String [] args){
-        int coins []=new int[]{2,2,2,2,2,1,2,2,2,2,2,2,2,2};
+        int coins []=new int[]{2,1,2};
         CounterfeitCoin c=new CounterfeitCoin();
         c.checkCoin(coins, 0, coins.length-1);
     }
@@ -17,6 +17,14 @@ public class CounterfeitCoin {
         int n=to-from+1;
         if (from==to){
             System.out.println("第"+(from+1) +"个硬币为假币");
+            return;
+        }
+        if(n==2&&coins[from]!=coins[to]){
+            if (coins[from]>coins[to]){
+                System.out.println("第"+(to+1) +"个硬币为假币");
+            }else{
+                System.out.println("第"+(from+1) +"个硬币为假币");
+            }
             return;
         }
         int gap=(int)Math.ceil(n/3);
